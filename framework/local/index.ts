@@ -9,7 +9,7 @@ import { Handler } from "../types/types";
 import { isRejectedRequest, isValidContentLength } from "./http";
 import { emulateCoreProcess } from "./serving";
 
-export function serveHandler(handler: Handler, port = 8080): FastifyInstance {
+export function serveHandler(handler: Handler, port = 8080, host ="0.0.0.0"): FastifyInstance {
   let server = fastify();
   server.register(plugin);
 
@@ -74,7 +74,7 @@ export function serveHandler(handler: Handler, port = 8080): FastifyInstance {
 
   server.all("/*", serverFactory);
 
-  server.listen({ port: port }, (err, address) => {
+  server.listen({ host: host, port: port }, (err, address) => {
     if (err) {
       console.error(err);
       process.exit(1);
