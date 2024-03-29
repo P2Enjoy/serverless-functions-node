@@ -9,7 +9,7 @@ import { Handler } from "../types/types";
 import { isRejectedRequest, isValidContentLength } from "./http";
 import { emulateCoreProcess } from "./serving";
 
-export function serveHandler(handler: Handler, port = 8080, host ="0.0.0.0"): FastifyInstance {
+export function serveHandler(handler: Handler, port = 8080, host ="127.0.0.1"): FastifyInstance {
   let server = fastify();
   server.register(plugin);
 
