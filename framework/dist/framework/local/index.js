@@ -5,7 +5,7 @@ const fastify_1 = require("fastify");
 const plugin = require("@fastify/url-data");
 const http_1 = require("./http");
 const serving_1 = require("./serving");
-function serveHandler(handler, port = 8080, host = "0.0.0.0") {
+function serveHandler(handler, port = 8080, host = "127.0.0.1") {
     let server = (0, fastify_1.fastify)();
     server.register(plugin);
     server.addContentTypeParser("text/json", { parseAs: "string" }, server.defaultTextParser);

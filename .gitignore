@@ -13,3 +13,6 @@ dist/
 
 # Serverless directories
 .serverless/
+
+# Project directories
+.idea
